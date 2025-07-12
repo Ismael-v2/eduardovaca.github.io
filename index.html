@@ -36,11 +36,16 @@
   }
 
   .navbar .nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-  }
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-left: 0.5rem;
+}
+
 
   .navbar .nav-links a {
     color: #eee;
