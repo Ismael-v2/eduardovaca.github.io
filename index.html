@@ -1,178 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eduardo I. Vaca</title>
-<style>
-body {
-font-family: sans-serif;
-background-color: #000;
-color: #eee;
-margin: 0;
-padding-top: 5rem;
-text-align: center;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eduardo I. Vaca</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #000;
+      color: #eee;
+      margin: 0;
+      padding-top: 7rem;
+      text-align: center;
+    }
 
-/* NAVIGATION BAR */
-.navbar {
-position: fixed;
-top: 0;
-width: 100%;
-background-color: #111;
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-align-items: center;
-padding: 1rem 1.5rem;
-z-index: 1000;
-box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
+    /* NAVIGATION BAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      flex-wrap: wrap;
+    }
 
-.navbar .name {
-font-weight: bold;
-font-size: 1.1rem;
-margin-bottom: 0.5rem;
-}
+    .navbar .name {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
 
-.navbar .nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-  }
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  gap: 0.5rem;
-  max-width: 100%;
-  overflow-x: auto;
-  white-space: nowrap;
-  padding-left: 0.5rem;
-}
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
 
+    .nav-links a {
+      color: #eee;
+      text-decoration: none;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      font-size: 0.9rem;
+    }
 
-.navbar .nav-links a {
-color: #eee;
-text-decoration: none;
-padding: 0.4rem 0.8rem;
-border: 1px solid #eee;
-border-radius: 5px;
-transition: 0.3s ease;
-font-size: 0.9rem;
-}
+    .nav-links a:hover {
+      background-color: #eee;
+      color: #111;
+    }
 
-.navbar .nav-links a:hover {
-background-color: #eee;
-color: #111;
-}
+    .section {
+      margin: 2rem 1rem;
+    }
 
-.section {
-margin: 2rem 1rem;
-}
+    h1, h2 {
+      margin-bottom: 0.3em;
+    }
 
-h1, h2 {
-margin-bottom: 0.3em;
-}
+    .highlight {
+      color: #4cbaed;
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
 
-.highlight {
-color: #4cbaed;
-font-size: 1rem;
-padding: 0 1rem;
-}
+    .job {
+      margin-bottom: 2rem;
+    }
 
-.job {
-margin-bottom: 2rem;
-}
+    .job-title {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
 
-.job-title {
-font-weight: bold;
-font-size: 1.1rem;
-}
+    .job-details {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
 
-.job-details {
-color: #aaa;
-font-size: 0.9rem;
-}
+    img {
+      width: 60%;
+      max-width: 600px;
+      height: auto;
+      margin-top: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    }
 
-img {
-max-width: 90%;
-height: auto;
-margin-top: 1rem;
-border-radius: 8px;
-}
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
 
-@media (max-width: 600px) {
-.navbar {
-flex-direction: column;
-align-items: flex-start;
-padding: 1rem;
-}
+      .nav-links {
+        justify-content: flex-start;
+        width: 100%;
+        gap: 0.5rem;
+      }
 
-.navbar .nav-links {
-justify-content: flex-start;
-width: 100%;
-}
+      .nav-links a {
+        font-size: 0.85rem;
+      }
 
-.navbar .nav-links a {
-font-size: 0.85rem;
-}
+      h1 {
+        font-size: 1.5rem;
+      }
 
-h1 {
-font-size: 1.5rem;
-}
+      .highlight {
+        font-size: 0.9rem;
+      }
 
-.highlight {
-font-size: 0.9rem;
-}
+      .job-title {
+        font-size: 1rem;
+      }
 
-.job-title {
-font-size: 1rem;
-}
-}
-</style>
+      img {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAVIGATION BAR -->
-<header class="navbar">
-<div class="name">Eduardo I. Vaca</div>
-<div class="nav-links">
-<a href="https://github.com/Ismael-v2" target="_blank">GitHub</a>
-<a href="your-resume-link.pdf" target="_blank">Resume</a>
-<a href="https://www.linkedin.com/in/eduardo-ismael-vaca" target="_blank">LinkedIn</a>
-<a href="#projects">Projects</a>
-</div>
-</header>
+  <!-- NAVIGATION BAR -->
+  <header class="navbar">
+    <div class="name">Eduardo I. Vaca</div>
+    <div class="nav-links">
+      <a href="https://github.com/Ismael-v2" target="_blank">GitHub</a>
+      <a href="your-resume-link.pdf" target="_blank">Resume</a>
+      <a href="https://www.linkedin.com/in/eduardo-ismael-vaca" target="_blank">LinkedIn</a>
+      <a href="#projects">Projects</a>
+    </div>
+  </header>
 
-<!-- MAIN CONTENT -->
-<h1>Eduardo I. Vaca</h1>
-<p class="highlight">Electrical Engineering at California State University, Fullerton | Interested in RF engineering for space applications.</p>
-<p>
-<a href="mailto:e.vaca815@csu.fullerton.edu" style="color: #eee; text-decoration: none;">
-e.vaca815@csu.fullerton.edu
-</a>
-</p>
+  <!-- MAIN CONTENT -->
+  <h1>Eduardo I. Vaca</h1>
+  <p class="highlight">Electrical Engineering at California State University, Fullerton | Interested in RF engineering for space applications.</p>
+  <p>
+    <a href="mailto:e.vaca815@csu.fullerton.edu" style="color: #eee; text-decoration: none;">
+      e.vaca815@csu.fullerton.edu
+    </a>
+  </p>
 
-<div class="section">
-<h2>Current Role</h2>
-<div class="job">
-<div class="job-title">Controls PCB Lead — Titan Rover Team</div>
-<div class="job-details">Cal State Fullerton · 2025–Present</div>
-<p>Designing and managing custom PCB layouts for the rover's control systems using KiCad, including power regulation and signal routing for subsystems.</p>
-</div>
-</div>
+  <div class="section">
+    <h2>Current Role</h2>
+    <div class="job">
+      <div class="job-title">Controls PCB Lead — Titan Rover Team</div>
+      <div class="job-details">Cal State Fullerton · 2025–Present</div>
+      <p>Designing and managing custom PCB layouts for the rover's control systems using KiCad, including power regulation and signal routing for subsystems.</p>
+    </div>
+  </div>
 
-<div class="section" id="projects">
-<h2>Featured Projects</h2>
-<div class="job">
-<div class="job-title">ESP32 Climate Display</div>
-<img src="IMG_1266.JPG" alt="ESP32 Climate Project">
-<p>Monitors temperature & humidity with OLED output, written in Arduino C++.</p>
-<a href="https://github.com/Ismael-v2/esp32-climate-display/blob/main/README.md" target="_blank">View Project on GitHub</a>
-</div>
-</div>
+  <div class="section" id="projects">
+    <h2>Featured Projects</h2>
+    <div class="job">
+      <div class="job-title">ESP32 Climate Display</div>
+      <img src="IMG_1266.JPG" alt="ESP32 Climate Project">
+      <p>Monitors temperature & humidity with OLED output, written in Arduino C++.</p>
+      <a href="https://github.com/Ismael-v2/esp32-climate-display/blob/main/README.md" target="_blank">View Project on GitHub</a>
+    </div>
+  </div>
 
 </body>
-</html>
 </html>
