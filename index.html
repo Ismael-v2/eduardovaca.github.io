@@ -105,6 +105,13 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     }
+    ul.project-details {
+      text-align: left;
+      max-width: 700px;
+      margin: 0 auto 1em auto;
+      color: #ccc;
+      font-size: 0.99rem;
+    }
 
     @media (max-width: 600px) {
       :root {
@@ -179,6 +186,29 @@
 
   <div class="section" id="projects">
     <h2>Featured Projects</h2>
+
+    <!-- Satellite Project Highlight Section -->
+    <div class="job">
+      <div class="job-title">NOAA & Meteor M2-4 Weather Satellite Image Capture Project</div>
+      <div>
+        <!-- Replace these with your actual image filenames from the satellite project repo -->
+        <img src="https://raw.githubusercontent.com/Ismael-v2/satellite-imagery-antenna-project/main/sample_image1.jpg" alt="NOAA Satellite Image 1">
+        <img src="https://raw.githubusercontent.com/Ismael-v2/satellite-imagery-antenna-project/main/sample_image2.jpg" alt="NOAA Satellite Image 2">
+        <!-- Add or remove images as needed -->
+      </div>
+      <p>
+        Built a ground station and antenna system to receive and process weather satellite images from NOAA and Meteor M2-4. This project covers antenna design, RF hardware, SDR signal acquisition, and decoding weather images from real satellite passes using open-source tools.
+      </p>
+      <ul class="project-details">
+        <li>Designed and built a 137 MHz V-dipole antenna, achieving ~700% SNR improvement over a double-cross antenna baseline (from 11 dB to 20.2 dB on mid-elevation passes).</li>
+        <li>Configured RTL-SDR with Gpredict for orbital tracking and used SatDump to decode NOAA APT (analog) and Meteor M2-4 LRPT (digital) imagery.</li>
+        <li>Integrated LNAs and RF filters to reduce noise and improve signal quality across satellite passes.</li>
+        <li>Captured and processed high-resolution weather imagery from NOAA APT and Meteor M2-4 LRPT satellites, validating antenna performance improvements.</li>
+      </ul>
+      <a href="https://github.com/Ismael-v2/satellite-imagery-antenna-project" target="_blank">View Project on GitHub</a>
+    </div>
+
+    <!-- ESP32 Project Section -->
     <div class="job">
       <div class="job-title">ESP32 Climate Display</div>
       <img src="IMG_1266.JPG" alt="ESP32 Climate Project">
