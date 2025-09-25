@@ -6,8 +6,9 @@
   <title>Eduardo I. Vaca</title>
   <style>
     :root {
-      --navbar-height: 70px;
+      --navbar-height: 70px; /* Adjust as needed for your navbar height */
     }
+
     body {
       font-family: sans-serif;
       background-color: #000;
@@ -16,6 +17,8 @@
       padding-top: var(--navbar-height);
       text-align: center;
     }
+
+    /* NAVIGATION BAR */
     .navbar {
       position: fixed;
       top: 0;
@@ -32,15 +35,18 @@
       box-sizing: border-box;
       overflow: visible;
     }
+
     .navbar .name {
       font-weight: bold;
       font-size: 1.1rem;
     }
+
     .nav-links {
       display: flex;
       gap: 0.75rem;
       flex-wrap: wrap;
     }
+
     .nav-links a {
       color: #eee;
       text-decoration: none;
@@ -52,6 +58,7 @@
       box-sizing: border-box;
       display: inline-block;
     }
+
     .nav-links a:hover {
       background-color: #eee;
       color: #111;
@@ -90,22 +97,14 @@
       font-size: 0.9rem;
     }
 
-    /* Improved image handling */
     img {
-      width: 100%;
+      width: 60%;
       max-width: 600px;
       height: auto;
-      max-height: 80vh;
       margin-top: 1rem;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-      object-fit: contain;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      background: #111;
     }
-
     ul.project-details {
       text-align: left;
       max-width: 700px;
@@ -116,34 +115,40 @@
 
     @media (max-width: 600px) {
       :root {
-        --navbar-height: 110px;
+        --navbar-height: 110px; /* Adjust for mobile if needed */
       }
+
       .navbar {
         flex-direction: column;
         align-items: flex-start;
         padding: 1rem;
         height: var(--navbar-height);
       }
+
       .nav-links {
         justify-content: flex-start;
         width: 100%;
         gap: 0.5rem;
       }
+
       .nav-links a {
         font-size: 0.85rem;
       }
+
       h1 {
         font-size: 1.5rem;
       }
+
       .highlight {
         font-size: 0.9rem;
       }
+
       .job-title {
         font-size: 1rem;
       }
+
       img {
-        width: 100%;
-        max-width: 98vw;
+        width: 90%;
       }
     }
   </style>
@@ -186,22 +191,21 @@
     <div class="job">
       <div class="job-title">NOAA & Meteor M2-4 Weather Satellite Image Capture Project</div>
       <div>
+        <!-- Replace these with your actual image filenames from the satellite project repo -->
         <img src="msu_mr_AVHRR 3a21 False Color.png" alt="Meteor M2-4 Satellite Image 1">
         <img src="msu_mr_AVHRR 3a21 False Color Labeled.png" alt="Meteor M2-4 Satellite Image 2">
-        <img src="msu_mr_AVHRR 3a21 False Color US.png" alt="Meteor M2-4 Satellite Image 3">
-        <img src="V-dipole.jpg" alt="V-Dipole Antenna">
+        
+        <!-- Add or remove images as needed -->
       </div>
       <p>
-        I built a custom V-dipole antenna tuned to 137 MHz to capture weather satellite images directly from space. Compared to my earlier Double Cross Antenna design, this 120° V-Dipole design gave [...]
+        I built a custom V-dipole antenna tuned to 137 MHz to capture weather satellite images directly from space. Compared to my earlier Double Cross Antenna design, this 120° V-Dipole design gave me more than a 700% boost in signal quality thanks to better hardware and the use of low-noise amplifiers and filters. With an RTL-SDR receiver and SatDump decoding software, I successfully received and processed live digital imagery from the Russian Meteor M2-4 satellite, as well as NOAA weather satellites.
       </p>
-      <!--
-      <ul class="project-details">
+      <!--<ul class="project-details">
         <li>Designed and built a 137 MHz V-dipole antenna, achieving ~700% SNR improvement over a double-cross antenna baseline (from 11 dB to 20.2 dB on mid-elevation passes).</li>
         <li>Configured RTL-SDR with Gpredict for orbital tracking and used SatDump to decode NOAA APT (analog) and Meteor M2-4 LRPT (digital) imagery.</li>
         <li>Integrated LNAs and RF filters to reduce noise and improve signal quality across satellite passes.</li>
-        <li>Captured and processed high-resolution weather imagery from NOAA APT and Meteor M2-4 LRPT satellites, validating antenna performance improvements.</li>
+        <li>Captured and processed high-resolution weather imagery from NOAA APT and Meteor M2-4 LRPT satellites, validating antenna performance improvements.</li> -->
       </ul>
-      -->
       <a href="https://github.com/Ismael-v2/satellite-imagery-antenna-project" target="_blank">View Project on GitHub</a>
     </div>
 
