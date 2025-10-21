@@ -1,221 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Eduardo I. Vaca</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --navbar-height: 70px; /* Adjust as needed for your navbar height */
+    :root{
+      --bg: #0a0b0c;
+      --panel: rgba(255,255,255,0.03);
+      --muted: #9aa3ad;
+      --accent: #4cbaed;
+      --max-width: 1100px;
+      --navbar-height: 72px;
+      --radius: 12px;
+      --gap: 1.25rem;
     }
 
-    body {
-      font-family: sans-serif;
-      background-color: #000;
-      color: #eee;
-      margin: 0;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #000 0%, #040405 60%);
+      color:#e9eef3;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
       padding-top: var(--navbar-height);
-      text-align: center;
+      display:flex;
+      justify-content:center;
     }
 
-    /* NAVIGATION BAR */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      height: var(--navbar-height);
-      background-color: #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-      flex-wrap: wrap;
-      box-sizing: border-box;
-      overflow: visible;
+    a{color:var(--accent); text-decoration:none}
+    a.button{display:inline-block;padding:0.55rem 0.9rem;border-radius:8px;background:var(--accent);color:#071023;font-weight:600}
+
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+      padding:2rem;
+      display:flex;
+      flex-direction:column;
+      gap:var(--gap);
     }
 
-    .navbar .name {
-      font-weight: bold;
-      font-size: 1.1rem;
+    /* NAV */
+    .navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      height:var(--navbar-height);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:999;
+      backdrop-filter: blur(6px) saturate(120%);
+      background: linear-gradient(180deg, rgba(10,11,12,0.75), rgba(6,7,8,0.55));
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
     }
 
-    .nav-links {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
+    .nav-inner{
+      width:100%;
+      max-width:var(--max-width);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 1rem;
+      gap:1rem;
     }
 
-    .nav-links a {
-      color: #eee;
-      text-decoration: none;
-      padding: 0.4rem 0.8rem;
-      border: 1px solid #eee;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      font-size: 0.9rem;
-      box-sizing: border-box;
-      display: inline-block;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:0.75rem;
     }
 
-    .nav-links a:hover {
-      background-color: #eee;
-      color: #111;
+    /* Use Inter for the name (navbar + hero title) per request */
+    .brand .name,
+    h1 {
+      font-family: "Inter", sans-serif;
+      font-weight: 800;
+      letter-spacing:0.2px;
+      color:#fff;
     }
 
-    .section {
-      margin: 2rem 1rem;
-      scroll-margin-top: var(--navbar-height);
+    .nav-links{
+      display:flex;
+      gap:0.6rem;
+      align-items:center;
     }
 
-    #projects {
-      scroll-margin-top: var(--navbar-height);
+    .nav-links a{
+      color:var(--muted);
+      padding:0.45rem 0.7rem;
+      border-radius:8px;
+      font-size:0.92rem;
+      transition:all .18s ease;
+      border:1px solid transparent;
+      background:transparent;
     }
 
-    h1, h2 {
-      margin-bottom: 0.3em;
+    .nav-links a:hover{
+      color:#071023;
+      background:var(--accent);
+      border-color:rgba(255,255,255,0.04);
     }
 
-    .highlight {
-      color: #4cbaed;
-      font-size: 1rem;
-      padding: 0 1rem;
+    /* HERO */
+    .hero{
+      display:flex;
+      gap:2rem;
+      align-items:center;
+      justify-content:space-between;
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border-radius: var(--radius);
+      padding:1.6rem;
+      box-shadow: 0 8px 30px rgba(6,8,15,0.6);
+      border: 1px solid rgba(255,255,255,0.02);
+      align-items:center;
     }
 
-    .job {
-      margin-bottom: 2rem;
+    .hero-left{
+      flex:1 1 60%;
+      min-width:0;
     }
 
-    .job-title {
-      font-weight: bold;
-      font-size: 1.1rem;
+    h1{
+      margin:0 0 0.2rem 0;
+      font-size:2.1rem;
+      line-height:1.02;
+      color:#fff;
     }
 
-    .job-details {
-      color: #aaa;
-      font-size: 0.9rem;
+    .sub{
+      margin:0 0 0.8rem 0;
+      color:var(--muted);
+      font-size:1rem;
     }
 
-    img {
-      width: 60%;
-      max-width: 600px;
-      height: auto;
-      margin-top: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    }
-    ul.project-details {
-      text-align: left;
-      max-width: 700px;
-      margin: 0 auto 1em auto;
-      color: #ccc;
-      font-size: 0.99rem;
+    .contact{
+      display:flex;
+      gap:0.6rem;
+      align-items:center;
+      flex-wrap:wrap;
     }
 
-    @media (max-width: 600px) {
-      :root {
-        --navbar-height: 110px; /* Adjust for mobile if needed */
-      }
+    .email-link{
+      color:#e9eef3;
+      padding:0.45rem 0.75rem;
+      background:transparent;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.04);
+      transition:all .15s;
+      font-weight:600;
+    }
 
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-        height: var(--navbar-height);
-      }
+    .email-link:hover{
+      background:#0d1820;
+      transform:translateY(-1px);
+    }
 
-      .nav-links {
-        justify-content: flex-start;
-        width: 100%;
-        gap: 0.5rem;
-      }
+    .hero-right{
+      width:160px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
 
-      .nav-links a {
-        font-size: 0.85rem;
-      }
+    .avatar{
+      width:140px;
+      height:140px;
+      border-radius:18px;
+      background:linear-gradient(135deg,#0b1220 0%, #081018 100%);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 10px 30px rgba(3,6,12,0.6);
+      font-weight:700;
+      font-family:"Inter",sans-serif;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
 
-      h1 {
-        font-size: 1.5rem;
-      }
+    /* Sections */
+    .sections{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:1.2rem;
+      align-items:start;
+    }
 
-      .highlight {
-        font-size: 0.9rem;
-      }
+    .panel{
+      background:var(--panel);
+      border-radius:12px;
+      padding:1.05rem;
+      border:1px solid rgba(255,255,255,0.02);
+    }
 
-      .job-title {
-        font-size: 1rem;
-      }
+    .panel h2{
+      margin:0 0 0.6rem 0;
+      font-size:1.1rem;
+      font-family:"Merriweather", serif;
+      color:#fff;
+    }
 
-      img {
-        width: 90%;
-      }
+    /* Use Inter for job title (current role) and job details per request */
+    .job-title{
+      font-family:"Inter",sans-serif;
+      font-weight:700;
+      color:#fff;
+      font-size:1rem;
+    }
+    .job-details{
+      font-family:"Inter",sans-serif;
+      color:var(--muted);
+      font-size:0.9rem;
+      margin-bottom:0.6rem;
+    }
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:0.9rem;
+      margin-top:0.6rem;
+    }
+
+    .project{
+      display:flex;
+      flex-direction:column;
+      gap:0.6rem;
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      padding:0.7rem;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    /* project titles and the Featured Projects heading should use Inter */
+    #projects-heading,
+    .project h3 {
+      font-family: "Inter", sans-serif;
+      font-weight:700;
+      color:#fff;
+      margin:0;
+    }
+
+    .project img{
+      width:100%;
+      height:140px;
+      object-fit:cover;
+      border-radius:8px;
+      display:block;
+      box-shadow: 0 8px 20px rgba(2,6,12,0.6);
+      background:linear-gradient(180deg,#071018,#0b1220);
+    }
+
+    .project p{margin:0;color:var(--muted);font-size:0.92rem}
+
+    .meta{
+      margin-top:0.5rem;display:flex;gap:0.5rem;align-items:center;
+    }
+
+    .meta a{font-size:0.9rem}
+
+    .right-column{
+      display:flex;
+      flex-direction:column;
+      gap:0.9rem;
+    }
+
+    .small-panel{
+      padding:0.9rem;
+    }
+
+    /* Use Inter for skills and contact per request */
+    .skills,
+    .skill,
+    .contact-panel,
+    .contact-panel * {
+      font-family: "Inter", sans-serif;
+    }
+
+    .skills{
+      display:flex;
+      gap:0.5rem;
+      flex-wrap:wrap;
+      margin-top:0.6rem;
+    }
+
+    .skill{
+      background:rgba(255,255,255,0.03);
+      padding:0.35rem 0.6rem;
+      border-radius:8px;
+      color:var(--muted);
+      font-size:0.85rem;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    /* responsive */
+    @media (max-width:980px){
+      .sections{grid-template-columns:1fr}
+      .projects-grid{grid-template-columns: repeat(2, 1fr)}
+      .hero{flex-direction:column;align-items:flex-start}
+      .hero-right{width:100%;display:flex;justify-content:flex-start}
+    }
+
+    @media (max-width:600px){
+      :root{--navbar-height:110px}
+      .nav-links{display:flex;flex-wrap:wrap}
+      h1{font-size:1.6rem}
+      .projects-grid{grid-template-columns:1fr}
+      .avatar{width:110px;height:110px}
+      .hero-right{margin-top:0.4rem}
+      .nav-inner{padding:0 0.6rem}
+      .wrap{padding:1rem}
+      .hero{padding:1rem}
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION BAR -->
-  <header class="navbar">
-    <div class="name">Eduardo I. Vaca</div>
-    <div class="nav-links">
-      <a href="https://github.com/Ismael-v2" target="_blank">GitHub</a>
-      <a href="Eduardo_Vaca_Resume.pdf" target="_blank">Resume</a>
-      <a href="https://www.linkedin.com/in/eduardo-ismael-vaca" target="_blank">LinkedIn</a>
-      <a href="#projects">Projects</a>
-    </div>
-  </header>
-
-  <!-- MAIN CONTENT -->
-  <h1>Eduardo I. Vaca</h1>
-  <p class="highlight">Electrical Engineering at California State University, Fullerton | Interested in RF engineering for antenna design and space applications.</p>
-  <p>
-    <a href="mailto:e.vaca815@csu.fullerton.edu" style="color: #eee; text-decoration: none;">
-      e.vaca815@csu.fullerton.edu
-    </a>
-  </p>
-
-  <div class="section">
-    <h2>Current Role</h2>
-    <div class="job">
-      <div class="job-title">Controls Lead — Titan Rover Team</div>
-      <div class="job-details">Cal State Fullerton · January 2025 - Present</div>
-      <p>Leading coordination across the Controls subteams to maintain clear communication and reliable system performance throughout the rover’s development timeline.</p>
-    </div>
-  </div>
-
-  <div class="section" id="projects">
-    <h2>Featured Projects</h2>
-
-    <!-- Satellite Project Highlight Section -->
-    <div class="job">
-      <div class="job-title">NOAA & Meteor M2-4 Weather Satellite Image Capture Project</div>
-      <div>
-        <!-- Replace these with your actual image filenames from the satellite project repo -->
-        <img src="msu_mr_AVHRR 3a21 False Color.png" alt="Meteor M2-4 Satellite Image 1">
-        <img src="msu_mr_AVHRR 3a21 False Color Labeled.png" alt="Meteor M2-4 Satellite Image 2">
-        <!-- Add or remove images as needed -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="name">Eduardo I. Vaca</div>
       </div>
-      <p>
-        I built a custom V-dipole antenna tuned to 137 MHz to capture weather satellite images directly from space. Compared to my earlier Double Cross Antenna design, this 120° V-Dipole design gave me more than a 700% boost in signal quality thanks to better hardware and the use of low-noise amplifiers and filters. With an RTL-SDR receiver and SatDump decoding software, I successfully received and processed live digital imagery from the Russian Meteor M2-4 and M2-3 satellites, as well as NOAA weather satellites.
-      </p>
-      <!--<ul class="project-details">
-        <li>Designed and built a 137 MHz V-dipole antenna, achieving ~700% SNR improvement over a double-cross antenna baseline (from 11 dB to 20.2 dB on mid-elevation passes).</li>
-        <li>Configured RTL-SDR with Gpredict for orbital tracking and used SatDump to decode NOAA APT (analog) and Meteor M2-4 LRPT (digital) imagery.</li>
-        <li>Integrated LNAs and RF filters to reduce noise and improve signal quality across satellite passes.</li>
-        <li>Captured and processed high-resolution weather imagery from NOAA APT and Meteor M2-4 LRPT satellites, validating antenna performance improvements.</li> -->
-      </ul>
-      <a href="https://github.com/Ismael-v2/satellite-imagery-antenna-project" target="_blank">View Project on GitHub</a>
+
+      <div class="nav-links" role="menu">
+        <a href="https://github.com/Ismael-v2" target="_blank" rel="noopener" role="menuitem">GitHub</a>
+        <a href="Eduardo_Vaca_Resume.pdf" target="_blank" rel="noopener" role="menuitem">Resume</a>
+        <a href="https://www.linkedin.com/in/eduardo-ismael-vaca" target="_blank" rel="noopener" role="menuitem">LinkedIn</a>
+        <a href="#projects" role="menuitem">Projects</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap" id="top">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-left">
+        <h1 id="hero-heading">Eduardo I. Vaca</h1>
+        <div class="sub">Electrical Engineering — Cal State Fullerton. Interest: RF engineering, antenna design & space systems.</div>
+
+        <div class="contact">
+          <a class="email-link" href="mailto:e.vaca815@csu.fullerton.edu">e.vaca815@csu.fullerton.edu</a>
+          <a class="button" href="Eduardo_Vaca_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="true">
+        <div class="avatar">E V</div>
+      </div>
+    </section>
+
+    <!-- GRID: main content + sidebar -->
+    <div class="sections">
+      <div>
+        <!-- Current Role -->
+        <section class="panel" aria-labelledby="role-heading">
+          <h2 id="role-heading">Current Role</h2>
+          <div class="job-title">Controls Lead — Titan Rover Team</div>
+          <div class="job-details">Cal State Fullerton · January 2025 - Present</div>
+          <p style="color:var(--muted);margin-top:0.6rem">
+            Leading coordination across Controls subteams to ensure reliable system performance and clear communication across electrical and software interfaces during rover development.
+          </p>
+        </section>
+
+        <!-- Projects list -->
+        <section id="projects" class="panel" aria-labelledby="projects-heading" style="margin-top:1rem">
+          <h2 id="projects-heading">Featured Projects</h2>
+
+          <div class="projects-grid">
+            <article class="project" aria-labelledby="proj-sat">
+              <!-- spaces in filenames are encoded as %20 to help browsers find the files -->
+              <img src="msu_mr_AVHRR%203a21%20False%20Color.png" alt="Meteor M2-4 Satellite Image" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27600%27 height=%27400%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%230b1220%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 fill=%27%239aa3ad%27 font-family=%27Inter, Arial, sans-serif%27 font-size=%2720%27 dominant-baseline=%27middle%27 text-anchor=%27middle%27%3EImage not found%3C/text%3E%3C/svg%3E';" loading="lazy">
+              <h3 id="proj-sat">NOAA & Meteor M2-4 — Satellite Image Capture</h3>
+              <p>
+                Custom V-dipole tuned to 137 MHz for satellite LRPT/APT capture. Configured RTL-SDR, tracking, and decoding pipelines; integrated LNAs & filters to improve SNR for clearer imagery.
+              </p>
+              <div class="meta">
+                <a href="https://github.com/Ismael-v2/satellite-imagery-antenna-project" target="_blank" rel="noopener">View on GitHub</a>
+              </div>
+            </article>
+
+            <article class="project" aria-labelledby="proj-esp32">
+              <img src="IMG_1266.JPG" alt="ESP32 climate display" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27600%27 height=%27400%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%230b1220%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 fill=%27%239aa3ad%27 font-family=%27Inter, Arial, sans-serif%27 font-size=%2720%27 dominant-baseline=%27middle%27 text-anchor=%27middle%27%3EImage not found%3C/text%3E%3C/svg%3E';" loading="lazy">
+              <h3 id="proj-esp32">ESP32 Climate Display</h3>
+              <p>Temperature & humidity monitoring with an OLED display, implemented in Arduino C++ for compact real-time readout.</p>
+              <div class="meta">
+                <a href="https://github.com/Ismael-v2/esp32-climate-display/blob/main/README.md" target="_blank" rel="noopener">View on GitHub</a>
+              </div>
+            </article>
+
+            <article class="project" aria-labelledby="proj-sat2">
+              <img src="msu_mr_AVHRR%203a21%20False%20Color%20Labeled.png" alt="Labeled satellite image" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27600%27 height=%27400%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%230b1220%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 fill=%27%239aa3ad%27 font-family=%27Inter, Arial, sans-serif%27 font-size=%2720%27 dominant-baseline=%27middle%27 text-anchor=%27middle%27%3EImage not found%3C/text%3E%3C/svg%3E';" loading="lazy">
+              <h3 id="proj-sat2">Satellite Imagery — Processing & Analysis</h3>
+              <p>Captured and processed NOAA APT and Meteor LRPT imagery; evaluated antenna performance and SNR improvements across passes.</p>
+              <div class="meta">
+                <a href="https://github.com/Ismael-v2/satellite-imagery-antenna-project" target="_blank" rel="noopener">Read more</a>
+              </div>
+            </article>
+
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT COLUMN / SIDEBAR -->
+      <aside class="right-column" aria-label="Sidebar">
+        <div class="panel small-panel">
+          <h2>Skills</h2>
+          <div class="skills" aria-hidden="false">
+            <span class="skill">RF & Antenna Design</span>
+            <span class="skill">Embedded C/C++</span>
+            <span class="skill">Signal Processing</span>
+            <span class="skill">Controls</span>
+            <span class="skill">RTL-SDR</span>
+            <span class="skill">PCB Prototyping</span>
+          </div>
+        </div>
+
+        <div class="panel small-panel contact-panel">
+          <h2>Contact</h2>
+          <p style="color:var(--muted);margin:0 0 0.6rem 0">For collaborations or questions:</p>
+          <a class="email-link" href="mailto:e.vaca815@csu.fullerton.edu">e.vaca815@csu.fullerton.edu</a>
+          <div style="margin-top:0.6rem">
+            <a href="https://www.linkedin.com/in/eduardo-ismael-vaca" target="_blank" rel="noopener">LinkedIn</a> ·
+            <a href="https://github.com/Ismael-v2" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </aside>
     </div>
 
-    <!-- ESP32 Project Section -->
-    <div class="job">
-      <div class="job-title">ESP32 Climate Display</div>
-      <img src="IMG_1266.JPG" alt="ESP32 Climate Project">
-      <p>Monitors temperature & humidity with OLED output, written in Arduino C++.</p>
-      <a href="https://github.com/Ismael-v2/esp32-climate-display/blob/main/README.md" target="_blank">View Project on GitHub</a>
-    </div>
-  </div>
+  </main>
 
 </body>
 </html>
