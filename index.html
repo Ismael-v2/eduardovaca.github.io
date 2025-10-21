@@ -250,9 +250,10 @@
       margin:0;
     }
 
+    /* Increased thumbnail height for better prominence */
     .project img{
       width:100%;
-      height:140px;
+      height:180px; /* increased from 140px */
       object-fit:cover;
       border-radius:8px;
       display:block;
@@ -320,6 +321,7 @@
       .nav-inner{padding:0 0.6rem}
       .wrap{padding:1rem}
       .hero{padding:1rem}
+      .project img{height:140px} /* smaller thumbnails on narrow screens */
     }
   </style>
 </head>
@@ -349,7 +351,7 @@
 
         <div class="contact">
           <a class="email-link" href="mailto:e.vaca815@csu.fullerton.edu">e.vaca815@csu.fullerton.edu</a>
-          <a class="button" href="Eduardo_Vaca_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+          <!-- Download resume button removed (redundant) -->
         </div>
       </div>
 
