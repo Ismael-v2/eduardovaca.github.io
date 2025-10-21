@@ -224,6 +224,15 @@
       margin-bottom:0.6rem;
     }
 
+    /* Override specific panel headers to Inter as requested */
+    #role-heading,
+    #skills-heading,
+    #contact-heading {
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      color: #fff;
+    }
+
     .projects-grid{
       display:grid;
       grid-template-columns: repeat(2, 1fr);
@@ -279,7 +288,7 @@
       padding:0.9rem;
     }
 
-    /* Use Inter for skills and contact per request */
+    /* Use Inter for skills content per earlier request */
     .skills,
     .skill,
     .contact-panel,
@@ -347,11 +356,11 @@
     <section class="hero" aria-labelledby="hero-heading">
       <div class="hero-left">
         <h1 id="hero-heading">Eduardo I. Vaca</h1>
-        <div class="sub">Electrical Engineering — Cal State Fullerton. Interest: RF engineering, antenna design & space systems.</div>
+        <div class="sub">Electrical Engineering — California State University, Fullerton </div>
+        <div class="sub">Interested in: RF engineering, antenna design & space systems.</div>
 
         <div class="contact">
           <a class="email-link" href="mailto:e.vaca815@csu.fullerton.edu">e.vaca815@csu.fullerton.edu</a>
-          <!-- Download resume button removed (redundant) -->
         </div>
       </div>
 
@@ -381,7 +390,7 @@
             <article class="project" aria-labelledby="proj-sat">
               <!-- spaces in filenames are encoded as %20 to help browsers find the files -->
               <img src="msu_mr_AVHRR%203a21%20False%20Color.png" alt="Meteor M2-4 Satellite Image" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27600%27 height=%27400%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%230b1220%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 fill=%27%239aa3ad%27 font-family=%27Inter, Arial, sans-serif%27 font-size=%2720%27 dominant-baseline=%27middle%27 text-anchor=%27middle%27%3EImage not found%3C/text%3E%3C/svg%3E';" loading="lazy">
-              <h3 id="proj-sat">NOAA & Meteor M2-4 Satellite Image Capture</h3>
+              <h3 id="proj-sat">NOAA & Meteor M2-4 — Satellite Image Capture</h3>
               <p>
                 Custom V-dipole tuned to 137 MHz for satellite LRPT/APT capture. Configured RTL-SDR, tracking, and decoding pipelines; integrated LNAs & filters to improve SNR for clearer imagery.
               </p>
@@ -401,8 +410,8 @@
 
             <article class="project" aria-labelledby="proj-sat2">
               <img src="msu_mr_AVHRR%203a21%20False%20Color%20Labeled.png" alt="Labeled satellite image" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27600%27 height=%27400%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%230b1220%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 fill=%27%239aa3ad%27 font-family=%27Inter, Arial, sans-serif%27 font-size=%2720%27 dominant-baseline=%27middle%27 text-anchor=%27middle%27%3EImage not found%3C/text%3E%3C/svg%3E';" loading="lazy">
-              <h3 id="proj-sat2">Satellite Imagery </h3>
-              <p>Collection of captured and processed NOAA APT and Meteor LRPT imagery.</p>
+              <h3 id="proj-sat2">Satellite Imagery — Processing & Analysis</h3>
+              <p>Captured and processed NOAA APT and Meteor LRPT imagery; evaluated antenna performance and SNR improvements across passes.</p>
               <div class="meta">
                 <a href="https://github.com/Ismael-v2/satellite-imagery-antenna-project" target="_blank" rel="noopener">Read more</a>
               </div>
@@ -415,20 +424,19 @@
       <!-- RIGHT COLUMN / SIDEBAR -->
       <aside class="right-column" aria-label="Sidebar">
         <div class="panel small-panel">
-          <h2>Skills</h2>
+          <h2 id="skills-heading">Skills</h2>
           <div class="skills" aria-hidden="false">
             <span class="skill">RF & Antenna Design</span>
             <span class="skill">Embedded C/C++</span>
             <span class="skill">Signal Processing</span>
-            <span class="skill">Soldering</span>
+            <span class="skill">Controls</span>
             <span class="skill">RTL-SDR</span>
             <span class="skill">PCB Prototyping</span>
           </div>
         </div>
 
         <div class="panel small-panel contact-panel">
-          <h2>Contact</h2>
-          <p style="color:var(--muted);margin:0 0 0.6rem 0">For collaborations or questions:</p>
+          <h2 id="contact-heading">Contact</h2>
           <a class="email-link" href="mailto:e.vaca815@csu.fullerton.edu">e.vaca815@csu.fullerton.edu</a>
           <div style="margin-top:0.6rem">
             <a href="https://www.linkedin.com/in/eduardo-ismael-vaca" target="_blank" rel="noopener">LinkedIn</a> ·
